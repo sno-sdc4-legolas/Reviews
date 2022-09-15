@@ -1,0 +1,23 @@
+{
+  "name": "reviews",
+  "version": "1.0.0",
+  "description": "System Design",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sno-sdc4-legolas/Reviews.git"
+  },
+  "author": "Daniel Au",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sno-sdc4-legolas/Reviews/issues"
+  },
+  "homepage": "https://github.com/sno-sdc4-legolas/Reviews#readme",
+  "dependencies": {
+    "pg": "^8.8.0",
+    "postgres": "^3.2.4"
+  }
+}
