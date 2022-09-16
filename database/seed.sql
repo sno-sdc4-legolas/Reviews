@@ -15,7 +15,7 @@ CREATE TABLE reviews (
   date BIGINT NOT NULL,
   summary text,
   body text,
-  recommended boolean,
+  recommend boolean,
   reported boolean,
   reviewer_name text,
   reviewer_email text,
@@ -42,7 +42,7 @@ CREATE TABLE characteristics_reviews (
   value INT
 );
 
-\COPY reviews (id, product_id, rating, date, summary, body, recommended, reported, reviewer_name, reviewer_email, response, helpfulness) FROM 'database/csv/reviews.csv' WITH DELIMITER ',' CSV HEADER;
+\COPY reviews (id, product_id, rating, date, summary, body, recommend, reported, reviewer_name, reviewer_email, response, helpfulness) FROM 'database/csv/reviews.csv' WITH DELIMITER ',' CSV HEADER;
 
 \COPY reviews_photos (id, review_id, url) FROM 'database/csv/reviews_photos.csv' WITH DELIMITER ',' CSV HEADER;
 

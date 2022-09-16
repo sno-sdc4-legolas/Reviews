@@ -4,7 +4,9 @@
   "description": "System Design",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "seed": "psql postgres -f database/seed.sql",
+    "server-dev": "npx nodemon --watch server server/index.js"
   },
   "repository": {
     "type": "git",
@@ -17,6 +19,9 @@
   },
   "homepage": "https://github.com/sno-sdc4-legolas/Reviews#readme",
   "dependencies": {
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1",
+    "nodemon": "^2.0.19",
     "pg": "^8.8.0",
     "postgres": "^3.2.4"
   }
