@@ -7,9 +7,8 @@ app.use(express.json());
 
 app.get('/test', (req, res) => {
   console.log('Got a request')
-  res.
 })
 
-app.listen(process.env.PORT, () => {
+app.listen(process.env.SERVER_PORT, () => {
   console.log(`Listening on port ${process.env.SERVER_PORT}`);
 });
