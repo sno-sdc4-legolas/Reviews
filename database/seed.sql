@@ -15,12 +15,12 @@ CREATE TABLE reviews (
   date BIGINT NOT NULL,
   summary text,
   body text,
-  recommend boolean,
-  reported boolean,
+  recommended boolean,
+  reported boolean DEFAULT FALSE,
   reviewer_name text,
   reviewer_email text,
   response text,
-  helpfulness INT
+  helpfulness INT DEFAULT 0
 );
 
 CREATE TABLE reviews_photos (
@@ -42,7 +42,7 @@ CREATE TABLE characteristics_reviews (
   value INT
 );
 
-\COPY reviews (id, product_id, rating, date, summary, body, recommend, reported, reviewer_name, reviewer_email, response, helpfulness) FROM 'database/csv/reviews.csv' WITH DELIMITER ',' CSV HEADER;
+\COPY reviews (id, product_id, rating, date, summary, body, recommended, reported, reviewer_name, reviewer_email, response, helpfulness) FROM 'database/csv/reviews.csv' WITH DELIMITER ',' CSV HEADER;
 
 \COPY reviews_photos (id, review_id, url) FROM 'database/csv/reviews_photos.csv' WITH DELIMITER ',' CSV HEADER;
 
@@ -50,4 +50,7 @@ CREATE TABLE characteristics_reviews (
 
 \COPY characteristics_reviews (id, characteristic_id, review_id, value) FROM 'database/csv/characteristic_reviews.csv' WITH DELIMITER ',' CSV HEADER;
 
--- Run psql postgres -f database/seed.sql
+CREATE INDEX reviews_pid ON reviews (product_id);
+CREATE INDEX photos_rid ON reviews_photos (review_id);
+CREATE INDEX characteristics_pid ON characteristics (product_id);
+CREATE INDEX charreview_cid ON characteristics_reviews (characteristic_id);
