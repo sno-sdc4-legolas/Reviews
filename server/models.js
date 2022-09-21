@@ -99,7 +99,7 @@ module.exports = {
               pool.query(`
                 INSERT INTO reviews_photos (url, review_id)
                 VALUES ('${photo.url}', ${response.rows[0].review_id});
-              `).catch((err) => {console.log(err)})
+              `).catch((err) => {console.log('Error inserting into photos', err)})
             })
           }
 
@@ -111,7 +111,7 @@ module.exports = {
             `).catch((err) => {console.log('Error inserting into characteristics', err)})
           })
         })
-        .catch((err) => {console.log(err)})
+        .catch((err) => {console.log('Error posting review', err)})
   },
 
   markHelpful: (review_id) => {
