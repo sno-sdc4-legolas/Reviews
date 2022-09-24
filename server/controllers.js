@@ -3,11 +3,10 @@ const models = require('./models.js');
 
 module.exports = {
 
-  getReviews: (req, res) => {
+  getReviews: (req, res) => {  
     const {product_id, page, count} = req.query;
     models.getReviews(req.query)
       .then((response) => {
-        console.log('MY RESPONSE IS???', response);
         const getObj = {
           product: product_id,
           page,
